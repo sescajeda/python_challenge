@@ -59,12 +59,15 @@ with open(csvpath) as csvfile:
     print("Greatest Decrease in Profits: " + str(date_greatest_decrease) + " ($" + str(greatest_decrease) + ")")
 
 
-#Name text file i want to create
-file_name = "Financial_Analysis.txt"
+#Name folder i want my text file to be created in 
+existing_folder = ('analysis')
+
+#name text file i am going to create 
+file_name = os.path.join(existing_folder, "Financial_Analysis.txt")
 
  # Write results into a new text file 
 with open(file_name, "w") as file: 
-    file.write("Financial Analysis.\n")
+    file.write("Financial Analysis\n")
     file.write("-------------------------\n")
     file.write("Total Months: " + str(total_months) + "\n")
     file.write("Total: $" + str(net_total) + "\n")

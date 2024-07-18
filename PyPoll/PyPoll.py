@@ -41,8 +41,12 @@ with open(csvpath) as csvfile:
     print ("Winner:  " + winner)    
     print("-------------------------------")  
 
+#Name folder i want my text file to be created in 
+existing_folder = ('analysis')
+
  #Name text file i want to create
-file_name = "Election_Results.txt"
+file_name = os.path.join(existing_folder, "Election_Results.txt")
+
 
  # Write results into a new text file 
 with open(file_name, "w") as file: 
