@@ -29,12 +29,18 @@ with open(csvpath) as csvfile:
     print ("Total Votes:  "+ str(total_votes))
     print("-------------------------------")   
     winner = 0
+    most_votes=0
     for key in candidates:
         #calculate % of votes received for each candidate 
         percent_votes = round((int(candidates[key])/int(total_votes))*100, 3)
-        #determine the winner 
-        if percent_votes > 50:
+        #determine the winner by checking the percent_votes to the most_votes value
+        if percent_votes > most_votes:
             winner = key 
+            most_votes = percent_votes
+        else: 
+            most_votes = most_votes 
+            winner = winner
+              
         print(f"{key}: {percent_votes}% ({candidates[key]})")
     print("-------------------------------")   
            
@@ -55,12 +61,17 @@ with open(file_name, "w") as file:
     file.write ("Total Votes:  "+ str(total_votes) + "\n")
     file.write("-------------------------------\n")   
     winner = 0
+    most_votes =0
     for key in candidates:
         #calculate % of votes received by each candidate 
         percent_votes = round((int(candidates[key])/int(total_votes))*100, 3)
-        #determine the winner 
-        if percent_votes > 50:
+       #determine the winner by checking the percent_votes to the most_votes value
+        if percent_votes > most_votes:
             winner = key 
+            most_votes = percent_votes
+        else: 
+            most_votes = most_votes 
+            winner = winner
         file.write(f"{key}: {percent_votes}% ({candidates[key]})\n")
     file.write("-------------------------------\n")   
            
